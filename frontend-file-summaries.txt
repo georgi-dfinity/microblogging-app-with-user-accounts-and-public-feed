@@ -1,0 +1,13 @@
+{
+  "frontend/src/App.tsx": "Main application component that handles authentication state, profile setup modal display, and wraps the app with ThemeProvider and AppLayout.",
+  "frontend/src/hooks/useUserProfile.ts": "React Query hooks for fetching and saving user profiles, with proper loading state handling to prevent modal flash.",
+  "frontend/src/hooks/usePosts.ts": "React Query hooks for fetching the public feed with resolved author usernames and creating posts, including automatic cache invalidation and username resolution via the backend's public getUsername method.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog that prompts new users to create a username with validation and error handling.",
+  "frontend/src/components/PostComposer.tsx": "Post creation component with topic selector (random, politics, tech) that defaults to \"random\", validates topic selection, and submits both content and topic to the backend.",
+  "frontend/src/components/AppLayout.tsx": "Shared layout wrapper with header, footer, and neo-noir styling including gradients and backdrop effects.",
+  "frontend/src/components/LoginButton.tsx": "Authentication button that handles Internet Identity login/logout with proper state management and query cache clearing.",
+  "frontend/src/pages/PublicFeedPage.tsx": "Main feed page displaying all posts with loading states, empty states, post composer, and proper isOwnPost detection using the current user's principal.",
+  "frontend/src/components/PostCard.tsx": "Post card component displaying author avatar, resolved username (or 'Anonymous' fallback), timestamp, topic badge with color variants, and content with proper formatting.",
+  "frontend/src/index.css": "Global styles with neo-noir OKLCH color system featuring dark backgrounds, high contrast, and subtle accents for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with neo-noir color tokens, custom shadows, and animations for the dark aesthetic."
+}

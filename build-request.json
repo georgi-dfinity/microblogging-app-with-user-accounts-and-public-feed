@@ -1,0 +1,102 @@
+{
+  "kind": "build_request",
+  "title": "Show post author username instead of Anonymous",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "text": "Ensure that posts in the public feed display the authenticated author’s username rather than 'Anonymous' by successfully resolving each post’s author to a stored user profile.",
+      "target": "both",
+      "source": {
+        "message_ids": [
+          "msg-1"
+        ],
+        "quotes": [
+          "it shows my post as anonymous, change that to show the user's name"
+        ]
+      }
+    },
+    {
+      "id": "REQ-14",
+      "text": "Allow the public feed to read an author’s username for any post author without requiring admin privileges, while keeping write access and profile mutation permissions unchanged.",
+      "target": "backend",
+      "source": {
+        "message_ids": [
+          "msg-1"
+        ],
+        "quotes": [
+          "it shows my post as anonymous, change that to show the user's name"
+        ]
+      }
+    },
+    {
+      "id": "REQ-15",
+      "text": "Update the post card rendering logic to reliably display the resolved username for each post author and only fall back to 'Anonymous' if no username exists for that principal.",
+      "target": "frontend",
+      "source": {
+        "message_ids": [
+          "msg-1"
+        ],
+        "quotes": [
+          "it shows my post as anonymous, change that to show the user's name"
+        ]
+      }
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC-13",
+      "text": "When a user with a saved username creates a post, the public feed shows that username on the post card instead of 'Anonymous'.",
+      "target": "both",
+      "source": {
+        "message_ids": [
+          "msg-1"
+        ]
+      }
+    },
+    {
+      "id": "AC-14",
+      "text": "Viewing the public feed as a guest or non-admin does not result in authorization errors when resolving post author usernames.",
+      "target": "backend",
+      "source": {
+        "message_ids": [
+          "msg-1"
+        ]
+      }
+    },
+    {
+      "id": "AC-15",
+      "text": "The 'Anonymous' label is displayed only if the post author has no saved user profile.",
+      "target": "frontend",
+      "source": {
+        "message_ids": [
+          "msg-1"
+        ]
+      }
+    }
+  ],
+  "constraints": [
+    "Do not introduce new authentication providers or change the existing Internet Identity setup.",
+    "Do not modify immutable frontend paths."
+  ],
+  "non_goals": [
+    "Adding display names beyond the existing username field.",
+    "Changing how usernames are created or edited by users."
+  ],
+  "image_requirements": {
+    "required": [],
+    "edits": []
+  },
+  "context_slicing": {
+    "relevant_files_hint": [
+      "frontend/src/components/PostCard.tsx",
+      "frontend/src/pages/PublicFeedPage.tsx",
+      "frontend/src/hooks/usePosts.ts",
+      "backend/main.mo"
+    ],
+    "retrieved_memories": [],
+    "user_preferences": [],
+    "assumptions": [],
+    "open_questions": []
+  }
+}

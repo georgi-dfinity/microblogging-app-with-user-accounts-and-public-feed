@@ -1,0 +1,71 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-01-27T21:10:15.302Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-13",
+        "summary": "Ensure that posts in the public feed display the authenticated author’s username rather than 'Anonymous' by successfully resolving each post’s author to a stored user profile.",
+        "status": "implemented",
+        "plannedFiles": [
+          "backend/main.mo",
+          "frontend/src/hooks/usePosts.ts",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ],
+        "matchedFiles": [
+          "backend/main.mo",
+          "frontend/src/hooks/usePosts.ts",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Allow the public feed to read an author’s username for any post author without requiring admin privileges, while keeping write access and profile mutation permissions unchanged.",
+        "status": "implemented",
+        "plannedFiles": [
+          "backend/main.mo"
+        ],
+        "matchedFiles": [
+          "backend/main.mo"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Update the post card rendering logic to reliably display the resolved username for each post author and only fall back to 'Anonymous' if no username exists for that principal.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PostCard.tsx",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PostCard.tsx",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "frontend-file-summaries.txt",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/PostCard.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/usePosts.ts",
+    "frontend/src/pages/PublicFeedPage.tsx",
+    "implementation-plan.json",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

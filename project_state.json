@@ -1,0 +1,419 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 4,
+  "summary": "Microblogging social app where users have accounts with usernames and can post short messages visible to all users.",
+  "implemented_features": [
+    {
+      "id": "feature-enable-user-authentication-using-internet-identity-so-that-each-user-can-sign-in-and-have-a-unique-account",
+      "title": "Enable user authentication using Internet Identity so that each user can sign in and have a unique account.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo",
+          "frontend/src/App.tsx",
+          "frontend/src/components/LoginButton.tsx",
+          "frontend/src/hooks/useActor.ts",
+          "frontend/src/hooks/useInternetIdentity.ts"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-1"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-allow-authenticated-users-to-set-and-display-a-unique-username-that-is-associated-with-their-account",
+      "title": "Allow authenticated users to set and display a unique username that is associated with their account.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo",
+          "frontend/src/App.tsx",
+          "frontend/src/components/ProfileSetupModal.tsx",
+          "frontend/src/hooks/useUserProfile.ts"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-2"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-allow-authenticated-users-to-create-and-publish-short-text-posts",
+      "title": "Allow authenticated users to create and publish short text posts.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo",
+          "frontend/src/App.tsx",
+          "frontend/src/components/PostComposer.tsx",
+          "frontend/src/hooks/usePosts.ts"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-3"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-store-published-posts-so-that-they-persist-across-sessions-and-reloads",
+      "title": "Store published posts so that they persist across sessions and reloads.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-4"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-public-feed-where-all-users-can-see-all-posted-messages-along-with-the-author-s-username",
+      "title": "Display a public feed where all users can see all posted messages along with the author’s username.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "evidence": {
+        "files": [
+          "frontend/src/App.tsx",
+          "frontend/src/hooks/usePosts.ts",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-5"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-allow-unauthenticated-visitors-to-view-the-public-message-feed-but-require-authentication-to-create-posts",
+      "title": "Allow unauthenticated visitors to view the public message feed, but require authentication to create posts.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo",
+          "frontend/src/components/PostComposer.tsx",
+          "frontend/src/hooks/useActor.ts",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-6"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-creative-visual-theme-using-a-neo-noir-style-including-colors-typography-and-layout-consistently-across-the-app",
+      "title": "Apply a coherent, creative visual theme using a neo-noir style, including colors, typography, and layout, consistently across the app.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "evidence": {
+        "files": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/AppLayout.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-7"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-extend-the-post-data-model-so-that-each-post-includes-a-topic-selected-from-a-fixed-allowed-set-random-politics-or-tech",
+      "title": "Extend the post data model so that each post includes a topic selected from a fixed allowed set: \"random\", \"politics\", or \"tech\".",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-8"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-create-post-flow-so-that-when-a-user-creates-a-post-they-must-choose-exactly-one-topic-from-the-allowed-set-random-politics-tech-and-this-topic-is-persisted-with-the-post",
+      "title": "Update the create post flow so that when a user creates a post, they must choose exactly one topic from the allowed set (\"random\", \"politics\", \"tech\"), and this topic is persisted with the post.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo",
+          "frontend/src/components/PostComposer.tsx",
+          "frontend/src/hooks/usePosts.ts"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-9"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-validate-on-the-backend-that-the-topic-provided-when-creating-a-post-is-one-of-the-allowed-topics-random-politics-tech-and-reject-post-creation-if-it-is-not",
+      "title": "Validate on the backend that the topic provided when creating a post is one of the allowed topics (\"random\", \"politics\", \"tech\"), and reject post creation if it is not.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-10"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-post-composer-ui-to-allow-authenticated-users-to-select-a-topic-random-politics-tech-before-publishing-a-post-with-a-sensible-default-selected",
+      "title": "Update the post composer UI to allow authenticated users to select a topic (\"random\", \"politics\", \"tech\") before publishing a post, with a sensible default selected.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "evidence": {
+        "files": [
+          "frontend/src/components/PostComposer.tsx",
+          "frontend/src/hooks/usePosts.ts"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-11"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-display-the-topic-of-each-post-clearly-in-the-public-feed-alongside-the-post-content-and-author-information",
+      "title": "Display the topic of each post clearly in the public feed alongside the post content and author information.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "evidence": {
+        "files": [
+          "frontend/src/components/PostCard.tsx",
+          "frontend/src/hooks/usePosts.ts"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-12"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-that-posts-in-the-public-feed-display-the-authenticated-author-s-username-rather-than-anonymous-by-successfully-resolving-each-post-s-author-to-a-stored-user-profile",
+      "title": "Ensure that posts in the public feed display the authenticated author’s username rather than 'Anonymous' by successfully resolving each post’s author to a stored user profile.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo",
+          "frontend/src/hooks/usePosts.ts",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-13"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-allow-the-public-feed-to-read-an-author-s-username-for-any-post-author-without-requiring-admin-privileges-while-keeping-write-access-and-profile-mutation-permissions-unchanged",
+      "title": "Allow the public feed to read an author’s username for any post author without requiring admin privileges, while keeping write access and profile mutation permissions unchanged.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "evidence": {
+        "files": [
+          "backend/main.mo"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-14"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-post-card-rendering-logic-to-reliably-display-the-resolved-username-for-each-post-author-and-only-fall-back-to-anonymous-if-no-username-exists-for-that-principal",
+      "title": "Update the post card rendering logic to reliably display the resolved username for each post author and only fall back to 'Anonymous' if no username exists for that principal.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "evidence": {
+        "files": [
+          "frontend/src/components/PostCard.tsx",
+          "frontend/src/pages/PublicFeedPage.tsx"
+        ],
+        "components": [
+          "authorization@4.0.0",
+          "core-infrastructure@1.0.1",
+          "shadcn-ui@1.0.0",
+          "build-template-react@1.0.0",
+          "initial-app@1.0.0",
+          "github-export-icp-cli@1.0.0"
+        ],
+        "testIds": [
+          "REQ-15"
+        ],
+        "confidence": "high"
+      },
+      "version": 1
+    }
+  ],
+  "active_requests": [],
+  "architectural_notes": [
+    "Planned feature: messages should support an associated topic/category. Initial allowed topics are a fixed set: random, politics, and tech. Topics would be attached to each post and usable for display or filtering in the public feed."
+  ],
+  "known_issues": [
+    "Posts in the public feed are displayed as authored by \"anonymous\" instead of showing the authenticated user's username."
+  ],
+  "requiresBackendChanges": true,
+  "requiresFrontendChanges": true,
+  "isFixRequest": true,
+  "gameProjectType": "none",
+  "projectName": "Microblogging App with User Accounts and Public Feed"
+}

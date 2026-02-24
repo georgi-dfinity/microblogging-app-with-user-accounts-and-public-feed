@@ -1,0 +1,32 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-01-27T21:10:15.292Z",
+  "summary": "Diff implements public username resolution for post authors and updates the public feed rendering to display resolved usernames with an 'Anonymous' fallback.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Public feed polling via automatic refetch every 10 seconds.",
+      "reason": "The BuildRequest does not ask for periodic refreshing/polling behavior; it only requests correct username display and authorization behavior.",
+      "evidence": [
+        "frontend/src/hooks/usePosts.ts"
+      ]
+    },
+    {
+      "description": "Post card UI enhancements unrelated to author resolution (timestamp 'time ago' formatting, avatar initials, topic label/variant mapping).",
+      "reason": "The BuildRequest focuses on showing the author's username instead of 'Anonymous' and adjusting backend read permissions; these additional UI behaviors are not requested.",
+      "evidence": [
+        "frontend/src/components/PostCard.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.78,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/src/components/PostCard.tsx",
+    "frontend/src/hooks/usePosts.ts",
+    "frontend/src/pages/PublicFeedPage.tsx",
+    "project_state.json"
+  ]
+}

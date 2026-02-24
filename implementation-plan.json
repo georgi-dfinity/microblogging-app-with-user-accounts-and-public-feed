@@ -1,0 +1,55 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Resolve and display post author usernames in public feed",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "summary": "Resolve each post’s author principal to a stored user profile username and display it in the public feed instead of 'Anonymous'.",
+      "file_operations": [
+        {
+          "path": "backend/main.mo",
+          "operation": "modify",
+          "description": "Adjust backend capabilities so the public feed can resolve a post author's principal to a username from **persistent** user profile storage while keeping existing profile write/mutation authorization unchanged. Use the selected \"authorization\" component for role checks as appropriate; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/usePosts.ts",
+          "operation": "modify",
+          "description": "Extend feed fetching to also resolve author usernames for returned posts by calling the backend's public read capability, and return the resolved username alongside each post (or leave it absent if not found)."
+        },
+        {
+          "path": "frontend/src/pages/PublicFeedPage.tsx",
+          "operation": "modify",
+          "description": "Wire the updated posts hook data into the public feed rendering so each post card receives the resolved author username (or a signal that it was not found)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Permit non-admin/guest viewing of author usernames for any post author without changing write access or profile mutation permissions.",
+      "file_operations": [
+        {
+          "path": "backend/main.mo",
+          "operation": "modify",
+          "description": "Add/adjust a public (guest-accessible) read capability that returns only the author’s username (or null/none) for any provided principal, without requiring admin privileges and without exposing profile mutation. Ensure existing write functions and any full-profile reads remain protected per the selected \"authorization\" component; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Render the resolved author username on post cards and only fall back to 'Anonymous' when no username exists for that principal.",
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "modify",
+          "description": "Update post card rendering to display the resolved author username when provided, and fall back to 'Anonymous' only when the username is missing/unresolved."
+        },
+        {
+          "path": "frontend/src/pages/PublicFeedPage.tsx",
+          "operation": "modify",
+          "description": "Ensure PostCard is passed the resolved username (not a hardcoded 'Anonymous') and that the fallback behavior is driven solely by whether a username exists."
+        }
+      ]
+    }
+  ]
+}
